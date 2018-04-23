@@ -10,7 +10,7 @@ export default {
 			return state.age + "years";
 		},
 		name(state) {
-			return state.name;
+			return (state.name.length == 0) ? 'John Doe' : state.name;
 		}
 	},
 	mutations: {
