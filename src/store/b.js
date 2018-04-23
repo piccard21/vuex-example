@@ -12,7 +12,6 @@ export default {
 	mutations: {},
 	actions: {},
 	modules: {
-		// inherits the namespace from parent module
 		bb: {
 			namespaced: true,
 			state: {
