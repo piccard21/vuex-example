@@ -4,6 +4,7 @@
 			<h3>Hello {{ name }}</h3>
 			<p>sex: {{ sex }}</p>
 			<p>age: {{ age }}</p>
+			<p>zodiac: {{ zodiac }}</p>
 		</div>
 		Name: <input type="text" name="name" @input="setName($event.target.value)">
 	</div>
@@ -16,6 +17,9 @@
 		computed: {
 			name() {
 				return this.$store.getters['a/name']
+			},
+			zodiac() {
+				return this.$store.getters['b/bb/zodiac']
 			},
 			...mapGetters({
 				sex: 'b/sex',

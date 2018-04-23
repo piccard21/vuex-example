@@ -10,5 +10,19 @@ export default {
 		}
 	},
 	mutations: {},
-	actions: {}
+	actions: {},
+	modules: {
+		// inherits the namespace from parent module
+		bb: {
+			namespaced: true,
+			state: {
+				zodiac: 'gemini'
+			},
+			getters: {
+				zodiac(state) {
+					return state.zodiac;
+				}
+			}
+		}
+	}
 }

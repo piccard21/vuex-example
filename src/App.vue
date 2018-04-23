@@ -6,29 +6,22 @@
 
 		<hr>
 
-		<router-link to="/">Home</router-link>
+		<home></home>
 
 		<hr>
 
-		<router-view></router-view>
-
-		<hr>
-
-		<p>
-			<button @click="goHome">Go Home</button>
-			<input type="button" value="back" @click="goBack">
-			<input type="button" value="forward" @click="goForward">
-		</p>
 	</div>
 </template>
 
 <script>
 
-	import History from './mixins/History';
+	import Home from './components/Home.vue'
 
 	export default {
 		name: 'app',
-		mixins: [History],
+		components: {
+			Home
+		},
 		data() {
 			return {
 				url: 'https://vuex.vuejs.org/en/'
