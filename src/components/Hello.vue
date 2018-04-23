@@ -3,26 +3,28 @@
         <div id="hello">
             <h3>Hello {{ name }}</h3>
             <p>sex: {{ sex }}</p>
+            <p>age: {{ age }}</p>
          </div>
-         <input type="text" name="name" @input="setName($event.target.value)">
+         Name: <input type="text" name="name" @input="setName($event.target.value)">
     </div>
 </template>
 
 <script>
     import { mapGetters, mapMutations , mapActions } from 'vuex';
 
-    export default { 
+    export default {
         computed: { 
           name() {
-              // return this.$store.getters['a/name']
+              return this.$store.getters['a/name']
           },  
         ...mapGetters({
-            sex: 'b/sex'
+            sex: 'b/sex',
+	        age: 'a/age'
           })
         },
         methods: {
             setName(user) { 
-                // this.$store.commit('a/setName', user);
+                this.$store.commit('a/setName', user);
             }
         }
     }

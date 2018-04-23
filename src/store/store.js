@@ -4,40 +4,45 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
+const moduleA = {
+	namespaced: true,
 	state: {
-		count: 0,
-		simpleString: 'whatever it takes ...',
-		todos: [
-			{id: 1, text: 'AAA', done: true},
-			{id: 2, text: 'BBB', done: false},
-			{id: 3, text: 'CCC', done: true}
-		]
+		age: '21',
+		name: 'Veronica',
 	},
 	getters: {
-		count(state) {
-			return state.count;
+		age(state) {
+			return state.age + "years";
 		},
-		simpleString(state) {
-			return state.simpleString;
-		},
-		doneTodos: state => {
-			return state.todos.filter(todo => todo.done)
-		},
-		openTodos: state => {
-			return state.todos.filter(todo => !todo.done)
+		name(state) {
+			return state.name;
 		}
 	},
 	mutations: {
-		increment(state, val = 1) {
-			state.count = state.count + val
+		setName(state, name) {
+			state.name = name
 		}
 	},
-	actions: {
-		incrementAsync({commit, state}, val) {
-			setTimeout(() => {
-				commit('increment', val.add)
-			}, 1000)
+	actions: {}
+}
+
+const moduleB = {
+	namespaced: true,
+	state: {
+		sex: 'female'
+	},
+	getters: {
+		sex(state) {
+			return state.sex;
 		}
+	},
+	mutations: {},
+	actions: {}
+}
+
+export const store = new Vuex.Store({
+	modules: {
+		a: moduleA,
+		b: moduleB
 	}
 })
