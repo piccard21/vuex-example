@@ -2,30 +2,17 @@
 	<div id="app">
 		<img id="logo" src="./assets/logo.png">
 		<br>
-		<a :href="url">vue-router</a>
+		<a :href="url">vuex</a>
 
 		<hr>
 
 		<router-link to="/">Home</router-link>
-		<router-link to="/users/10">Team 10</router-link>
-		<router-link to="/users/12">Team 12</router-link>
-		<router-link to="/hello">Hello</router-link>
-		<router-link to="/open">Open</router-link>
-		<router-link to="/done">Done</router-link>
 
 		<hr>
 
 		<router-view></router-view>
 
 		<hr>
-
-		<p>
-			{{ simpleString }}
-		</p>
-		<p>
-			<input type="button" :value="count" @click="increment">
-			<input type="button" :value="count" @click="incrementThree">
-		</p>
 
 		<p>
 			<button @click="goHome">Go Home</button>
@@ -44,33 +31,12 @@
 		mixins: [History],
 		data() {
 			return {
-				url: 'https://router.vuejs.org/en/'
+				url: 'https://vuex.vuejs.org/en/'
 			}
 		},
-		computed: {
-			count() {
-				return "increment (" + this.$store.getters.count + ")";
-			},
-			simpleString() {
-				return this.$store.getters.simpleString;
-			}
-		},
-		methods: {
-			increment() {
-				this.$store.commit('increment');
-			},
-			incrementThree() {
-				this.$store.dispatch('incrementAsync', {
-					add: 3
-				});
-			}
-		},
-		watch: {
-			'$route' (to, from) {
-				console.info("from", from);
-				console.info("to", to);
-			}
-		},
+		computed: {},
+		methods: {},
+		watch: {},
 	}
 </script>
 

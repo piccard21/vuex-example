@@ -6,20 +6,12 @@ import {store} from './store/store'
 
 // lazy-loading
 const Home = () => import('./components/Home.vue')
-const Users = () => import('./components/Users.vue')
-const Hello = () => import('./components/Hello.vue')
-const Done = () => import('./components/TodosDone.vue')
-const Open = () => import('./components/TodosOpen.vue')
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
  
 const routes = [
-	{ path: '/', component: Home},
-	{ path: '/users/:teamId', component: Users},
-	{ path: '/hello', component: Hello},
-	{ path: '/open', component: Open},
-	{ path: '/done', component: Done}
+	{ path: '/', component: Home}
 ];
 
 const router = new VueRouter({
