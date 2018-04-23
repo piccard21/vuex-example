@@ -6,7 +6,7 @@
 			<p>age: {{ age }}</p>
 			<p>zodiac: {{ zodiac }}</p>
 		</div>
-		Name: <input type="text" name="name" @input="setName($event.target.value)">
+		Name: <input type="text" name="name" v-model="name">
 	</div>
 </template>
 
@@ -15,8 +15,13 @@
 
 	export default {
 		computed: {
-			name() {
-				return this.$store.getters['a/name']
+			name: {
+				get: function () {
+					return this.$store.getters['a/name']
+				},
+				set: function (newName) {
+					this.$store.commit('a/setName', newName);
+				}
 			},
 			zodiac() {
 				return this.$store.getters['b/bb/zodiac']
@@ -26,11 +31,7 @@
 				age: 'a/age'
 			})
 		},
-		methods: {
-			setName(user) {
-				this.$store.commit('a/setName', user);
-			}
-		}
+		methods: {}
 	}
 </script>
 
